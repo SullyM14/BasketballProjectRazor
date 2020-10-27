@@ -1,0 +1,70 @@
+﻿@page
+@model BasketballProjectRazor.Pages.NBAPlayers.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<style>
+    * {
+        background-size: cover;
+        text-align: center;
+        color: white
+    }
+
+    a {
+        color: white;
+    }
+</style>
+<h1>@Model.Players.ToString()</h1>
+
+<div>
+    <dl class="row justify-content-center">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Players.Age)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Players.Age)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Players.Ppg)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Players.Ppg)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Players.Apg)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Players.Apg)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Players.Rpg)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Players.Rpg)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Players.GamesPlayed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Players.GamesPlayed)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Players.Position)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Players.Position)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Players.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Players.Price)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-light" asp-page="./Players" asp-route-id="@Model.Players.TeamId">Back to List</a>
+</div>

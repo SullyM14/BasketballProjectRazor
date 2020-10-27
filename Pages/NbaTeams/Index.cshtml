@@ -1,0 +1,61 @@
+﻿@page
+@model BasketballProjectRazor.Pages.NbaTeams.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    * {
+        background-size: cover;
+        text-align: center;
+        color: white
+    }
+
+    a {
+        color: white;
+    }
+</style>
+
+<h1>NBA Teams</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nbateams[0].TeamName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nbateams[0].Wins)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nbateams[0].Losses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nbateams[0].Conference)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Nbateams) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wins)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Losses)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conference)
+            </td>
+            <td>
+                <a class="btn btn-success" asp-page="./Players" asp-route-id="@item.NbateamId">View Players</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

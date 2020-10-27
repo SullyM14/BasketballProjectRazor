@@ -1,0 +1,60 @@
+﻿@page
+@model BasketballProjectRazor.Pages.FantasyTeam.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style type="text/css">
+
+    * {
+        background-size: cover;
+        text-align: center;
+        color: white;
+    }
+
+    a {
+        color: white;
+    }
+</style>
+<h1>Welcome Back to Fantasy Basketball, @Model.UserTeams.FirstOrDefault().User.FirstName</h1>
+<br />
+<br />
+@*<p>
+    <a asp-page="Create">Create New</a>
+</p>*@
+
+<div style="display:inline">
+    <h1 style="float:left">Your Fantasy Teams</h1>
+    <a class="btn btn-success" style="float:right" asp-page="Create">Create New Fantasy Team</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserTeams[0].TeamName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserTeams[0].Budget)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.UserTeams)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamName)
+            </td>
+            <td>
+                £@Html.DisplayFor(modelItem => item.Budget)
+            </td>
+            <td>
+                <a class="btn btn-success" asp-page="../FantasyPlayers/Index" asp-route-id="@item.UserTeamId">View Fantasy Team</a> 
+                <a class="btn btn-danger" style="margin-left:20px" asp-page="./Delete" asp-route-id="@item.UserTeamId">Remove Team</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
